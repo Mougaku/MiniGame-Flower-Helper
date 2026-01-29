@@ -9,3 +9,7 @@ bak/
 
 # 忽略本地截图
 *.png
+# 允许提交 targets 文件夹下的所有 png
+!targets/*.png
+# 允许提交 ui 文件夹下的所有 png
+!ui/*.png
