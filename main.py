@@ -149,7 +149,7 @@ def multi_scale_search(target_path, screen_img):
                     found = (max_val, center_x, center_y, scale, color_diff)
             else:
                 # 可选：打印一下为什么跳过，方便调试
-                print(f"   ⚠️ 跳过干扰项: 形状分={max_val:.2f} 但色差={color_diff:.1f}")
+                print(f"   ⚠️ 跳过干扰项: 缩放:{found[3]:.2f} | 形状分={max_val:.2f} 但色差={color_diff:.1f}")
                 pass
 
     if found:
