@@ -64,15 +64,19 @@ python main.py
 🇨🇳 中文支持: 解决了 OpenCV 在 Windows 下无法读取中文路径图片的痛点，素材命名随意写。
 
 🛠️ 快速开始
+
 下载项目
 
-Bash
+```bash
 git clone [https://github.com/Mougaku/MiniGame-Flower-Helper.git](https://github.com/Mougaku/MiniGame-Flower-Helper.git)
+
 cd MiniGame-Flower-Helper
+```
 安装依赖 建议使用 Python 3.8+ 环境：
 
-Bash
+```bash
 pip install -r requirements.txt
+```
 配置参数
 
 将项目根目录下的 config.sample.json 复制一份，重命名为 config.json。
@@ -86,11 +90,15 @@ pip install -r requirements.txt
 将图片放入 targets 文件夹中（例如 春英郁金香.png）。
 
 🚀 运行脚本
+
 在终端运行以下命令：
 
-Bash
+```bash
 python main.py
+```
+
 ⚙️ 进阶配置说明
+
 如果你发现识别不准，可以在 config.json 中微调 search 部分：
 
 max_scale / min_scale: 缩放范围。如果你截的图是原图大小，设为 1.0 到 0.9 即可。
@@ -98,6 +106,7 @@ max_scale / min_scale: 缩放范围。如果你截的图是原图大小，设为
 match_threshold: 匹配阈值。设为 0.9 表示相似度必须达到 90% 才点击，防止误触。
 
 ⚠️ 免责声明 (Disclaimer)
+
 本项目仅供 Python 编程学习与技术交流使用。请勿用于商业用途或违反游戏官方的服务条款。使用者需自行承担运行脚本可能带来的风险。
 
 Made with ❤️ and Python.
