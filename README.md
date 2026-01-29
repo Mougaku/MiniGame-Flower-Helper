@@ -18,7 +18,7 @@ Unlike traditional OCR-based bots, this project utilizes **OpenCV** with **Multi
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/YourUsername/Cyber-Gardener.git](https://github.com/YourUsername/Cyber-Gardener.git)
+    git clone [https://github.com/Mougaku/Cyber-Gardener.git](https://github.com/Mougaku/Cyber-Gardener.git)
     cd Cyber-Gardener
     ```
 
@@ -67,7 +67,7 @@ python main.py
 下载项目
 
 Bash
-git clone [https://github.com/你的用户名/Cyber-Gardener.git](https://github.com/你的用户名/Cyber-Gardener.git)
+git clone [https://github.com/Mougaku/Cyber-Gardener.git](https://github.com/Mougaku/Cyber-Gardener.git)
 cd Cyber-Gardener
 安装依赖 建议使用 Python 3.8+ 环境：
 
