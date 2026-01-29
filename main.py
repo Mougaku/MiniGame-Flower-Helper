@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 import pyautogui
 import time
-import os
 import random
 import smtplib
 from email.mime.text import MIMEText
@@ -36,8 +35,8 @@ def cv_imread(file_path):
             return None
 
         return img
-    except Exception as e:
-        print(f"❌ 读取图片出错: {file_path} \n错误信息: {e}")
+    except Exception as exception:
+        print(f"❌ 读取图片出错: {file_path} \n错误信息: {exception}")
         return None
 
 def send_email_notify(task_name):
@@ -70,8 +69,8 @@ def send_email_notify(task_name):
         server.sendmail(MAIL_SENDER, [MAIL_RECEIVER], message.as_string())
         server.quit()
         print("✅ 邮件发送成功！")
-    except Exception as e:
-        print(f"❌ 邮件发送失败: {e}")
+    except Exception as exception:
+        print(f"❌ 邮件发送失败: {exception}")
 
 
 def get_screenshot_cv():
@@ -119,7 +118,7 @@ def multi_scale_search(target_path, screen_img):
 
     if found:
         print(f"   ⚡️ 缩放匹配成功! 图片:{os.path.basename(target_path)} 缩放:{found[3]:.2f} 相似度:{found[0]:.2f}")
-        return (found[1], found[2])
+        return found[1], found[2]
 
     return None
 
@@ -132,7 +131,7 @@ def smart_click_image(img_name, folder, timeout=1.0):
     while time.time() - start_time < timeout:
         screen = get_screenshot_cv()
         # UI 按钮通常是固定的，不需要缩放，直接用普通匹配
-        template = template = cv_imread(path)
+        template = cv_imread(path)
         res = cv2.matchTemplate(screen, template, cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
@@ -228,8 +227,8 @@ def main():
         except KeyboardInterrupt:
             print("🛑 用户停止")
             break
-        except Exception as e:
-            print(f"❌ 运行错误: {e}")
+        except Exception as exception:
+            print(f"❌ 运行错误: {exception}")
             time.sleep(1)
 
 
