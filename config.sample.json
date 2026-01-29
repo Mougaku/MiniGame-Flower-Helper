@@ -1,0 +1,22 @@
+{
+  "email": {
+    "enable": true,
+    "host": "smtp.163.com",
+    "sender": "",
+    "license": "",
+    "receiver": ""
+  },
+  "game": {
+    "target_folder": "./targets",
+    "ui_folder": "./ui",
+    "scroll_loop_count": 10,
+    "scroll_amount": -12250,
+    "scroll_wait": 0.2
+  },
+  "search": {
+    "max_scale": 1.0,
+    "min_scale": 0.5,
+    "scale_step": 0.05,
+    "match_threshold": 0.85
+  }
+}

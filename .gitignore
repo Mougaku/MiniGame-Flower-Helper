@@ -1,0 +1,10 @@
+# 忽略真实配置文件
+config.json
+
+# 忽略 Python 缓存
+__pycache__/
+.venv/
+bak/
+
+# 忽略本地截图
+*.png
