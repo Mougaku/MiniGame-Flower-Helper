@@ -183,7 +183,7 @@ def smart_click_image(img_name, folder, timeout=1.0):
 
 def confirm_task_logic():
     print("   👀 等待弹窗...")
-    time.sleep(0.5)
+    time.sleep(0.2)
 
     if smart_click_image('confirm_button.png', UI_FOLDER):
         print("✅✅✅ 成功接取！")
@@ -193,7 +193,7 @@ def confirm_task_logic():
     if not smart_click_image('close_button.png', UI_FOLDER):
         pyautogui.click(960, 300)  # 防止找不到关闭按钮时的兜底点击
 
-    time.sleep(0.3)
+    time.sleep(0.2)
     return False
 
 
@@ -241,11 +241,11 @@ def main():
             # 检查是否在任务界面，不在就点进去
             if not smart_click_image('enter_button.png', UI_FOLDER):
                 # 如果没找到入口，也没在列表页，可能是卡在二级菜单，点返回试试
-                # smart_click_image('back_button.png', UI_FOLDER)
+                smart_click_image('back_button.png', UI_FOLDER)
                 # (上面这行视情况开启，有时候会误触)
                 pass
 
-            time.sleep(0.5)
+            time.sleep(0.2)
 
             task_taken_name = None
             for i in range(SCROLL_LOOP_COUNT):
@@ -269,7 +269,7 @@ def main():
             print("⬅️ 返回刷新列表...")
             smart_click_image('back_button.png', UI_FOLDER)
             # 随机等待，模拟人类，防止被检测
-            time.sleep(random.uniform(1.0, 2.0))
+            time.sleep(random.uniform(0.5, 1.0))
 
         except KeyboardInterrupt:
             print("🛑 用户主动停止")
