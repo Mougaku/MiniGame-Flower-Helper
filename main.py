@@ -98,7 +98,7 @@ def get_screenshot_cv():
 
 # ================= 核心逻辑区 =================
 
-def multi_scale_search(target_path, screen_img):
+def multi_scale_search(target_path, screen_img, task_name):
     """
     【修改版】多尺度匹配 + 颜色强校验
     """
@@ -138,7 +138,7 @@ def multi_scale_search(target_path, screen_img):
             top_left_x: top_left_x + resize_w]
 
             # 对比颜色
-            color_ok, color_diff = is_color_similar(screen_crop, resized_template, threshold=20.0)
+            color_ok, color_diff = is_color_similar(screen_crop, resized_template, threshold=10.0)
 
             if color_ok:
                 # 只有颜色也对上了，才算找到
@@ -149,7 +149,7 @@ def multi_scale_search(target_path, screen_img):
                     found = (max_val, center_x, center_y, scale, color_diff)
             else:
                 # 可选：打印一下为什么跳过，方便调试
-                print(f"   ⚠️ 跳过干扰项: 缩放:{found[3]:.2f} | 形状分={max_val:.2f} 但色差={color_diff:.1f}")
+                print(f"   ⚠️ 跳过干扰项{task_name}: 缩放:{scale:.2f} | 形状分={max_val:.2f} 但色差={color_diff:.1f}")
                 pass
 
     if found:
@@ -177,14 +177,13 @@ def smart_click_image(img_name, folder, timeout=1.0):
             h, w = template.shape[:2]
             pyautogui.click(max_loc[0] + w // 2, max_loc[1] + h // 2)
             return True
-        time.sleep(0.1)
+        time.sleep(0.3)
     return False
 
 
 def confirm_task_logic():
     print("   👀 等待弹窗...")
-    time.sleep(0.2)
-
+    time.sleep(1.5)
     if smart_click_image('confirm_button.png', UI_FOLDER):
         print("✅✅✅ 成功接取！")
         return True
@@ -193,7 +192,7 @@ def confirm_task_logic():
     if not smart_click_image('close_button.png', UI_FOLDER):
         pyautogui.click(960, 300)  # 防止找不到关闭按钮时的兜底点击
 
-    time.sleep(0.2)
+    time.sleep(0.3)
     return False
 
 
@@ -201,12 +200,15 @@ def step_hunt_loop(targets):
     print(f"🔎 正在扫描 {len(targets)} 个目标...")
 
     screen = get_screenshot_cv()
+    if screen is None:  # 【新增】防止屏幕截图失败
+        print("❌ 截图失败，跳过本次扫描")
+        return None
 
     for target_file in targets:
         target_path = os.path.join(TARGET_FOLDER, target_file)
 
         # 调用修改后的多尺度搜索
-        loc = multi_scale_search(target_path, screen)
+        loc = multi_scale_search(target_path, screen, target_file)
 
         if loc:
             print(f"   🎯 点击坐标: {loc}")
@@ -218,6 +220,8 @@ def step_hunt_loop(targets):
             # 没抢到，重新截图继续 (防止画面变化)
             time.sleep(0.1)
             screen = get_screenshot_cv()
+        else:
+            pass
 
     return None
 
@@ -243,9 +247,11 @@ def main():
                 # 如果没找到入口，也没在列表页，可能是卡在二级菜单，点返回试试
                 smart_click_image('back_button.png', UI_FOLDER)
                 # (上面这行视情况开启，有时候会误触)
+                time.sleep(0.5)
+                smart_click_image('enter_button.png', UI_FOLDER)
                 pass
 
-            time.sleep(0.2)
+            time.sleep(0.5)
 
             task_taken_name = None
             for i in range(SCROLL_LOOP_COUNT):
