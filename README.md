@@ -50,17 +50,25 @@ python main.py
 2. 找到“Windows沙盒”，勾选，点击确定 (可能需要重启电脑）
 3. 在D盘根目录新建文件夹 Guaji_box (D:\Guaji_box)
 4. 将以下文件和文件夹拷贝到Guaji_box
+
    a) targets 文件夹
+
    b) ui 文件夹
+
    c) config.json
+
    d) FlowerBot.exe
+
    e) Start_Farm.wsb
-   f) Weixin文件夹  *从C:\Program Files\Tencent拷贝
-5. 双击Start_Farm.wsb, 等待虚拟机启动
-6. 在虚拟机内扫码登陆微信，打开花札小程序
-7. 重新截图targets和ui *有的机器不需要重新截图，启动后如果无反应，说明图片匹配不上，就需要重新截图
-8. 双击FlowerBot.exe, 启动脚本
+
+   f) Weixin文件夹      *从C:\Program Files\Tencent拷贝
+7. 双击Start_Farm.wsb, 等待虚拟机启动
+8. 在虚拟机内扫码登陆微信，打开花札小程序
+9. 重新截图targets和ui      *有的机器不需要重新截图，启动后如果无反应，说明图片匹配不上，就需要重新截图
+10. 双击FlowerBot.exe, 启动脚本
+
 *一定一定不能最小化，会导致脚本报错执行失败。可以拖到最边上或者用其他窗口挡住虚拟机窗口
+
 
 ## ⚙️ 进阶配置说明
 
@@ -78,6 +86,7 @@ python main.py
 ## ⚠️ 免责声明 (Disclaimer)
 
 本项目仅供 Python 编程学习与技术交流使用。请勿用于商业用途或违反游戏官方的服务条款。使用者需自行承担运行脚本可能带来的风险。
+
 
 
 <h2 id="-英文介绍">📖 English Description</h2>
