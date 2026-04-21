@@ -18,7 +18,7 @@ except Exception as e:
 
 # ================= 工具函数区 =================
 
-def is_color_similar(image_crop, template_img, threshold=5.0):
+def is_color_similar(image_crop, template_img, threshold=4.0):
     """
     【新增】对比两张图片的平均颜色差异
     threshold: 允许的色差阈值 (建议 50-80)。
@@ -138,7 +138,7 @@ def multi_scale_search(target_path, screen_img, task_name):
             top_left_x: top_left_x + resize_w]
 
             # 对比颜色
-            color_ok, color_diff = is_color_similar(screen_crop, resized_template, threshold=5.0)
+            color_ok, color_diff = is_color_similar(screen_crop, resized_template, threshold=4.0)
 
             if color_ok:
                 # 只有颜色也对上了，才算找到
