@@ -14,37 +14,27 @@
 * **🛡️ 安全配置**: 采用 JSON 配置文件，敏感信息（如邮箱密码）与代码彻底分离，防止开源时泄露。
 * **🇨🇳 中文支持**: 解决了 OpenCV 在 Windows 下无法读取中文路径图片的痛点，素材命名随意写。
 
-## 🛠️ 快速开始
+## 🚀 快速开始（无需安装python）
 
-1.  **下载项目**
-    ```bash
-    git clone [https://github.com/你的用户名/MiniGame-Flower-Helper.git](https://github.com/你的用户名/MiniGame-Flower-Helper.git)
-    cd MiniGame-Flower-Helper
-    ```
+1.  **下载以下文件**
+    * targets 文件夹
+    * ui 文件夹
+    * config.json
+    * FlowerBot.exe
 
-2.  **安装依赖**
-    建议使用 Python 3.8+ 环境：
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-3.  **配置参数**
-    * 将项目根目录下的 `config.sample.json` 复制一份，重命名为 `config.json`。
+2.  **配置参数**
+    * 将项目根目录下的 `config.sample.json` 重命名为 `config.json`。
     * 用记事本或 IDE 打开 `config.json`，填入你的邮箱授权码和想要调整的参数。
 
-4.  **准备素材**
+3.  **准备素材**
     * 在游戏的百花册中截图你想要抢的花朵图标（参考我的例子，尽量只截图标最中间的一小块，不要包含任何背景。或者等小鸭赛刷出你要的花后在小鸭赛界面截图）。
     * 将图片放入 `targets` 文件夹中（例如 `春英郁金香.png`）。
 
-## 🚀 运行脚本
+4.  **运行脚本**
+    双击打开 FlowerBot.exe
 
-在终端运行以下命令：
 
-```bash
-python main.py
-```
-
-## 🚀 虚拟机运行方法
+## 🛠️ 虚拟机运行方法
 
 1. 在windows搜索栏中搜索 “启用或关闭 Windows 功能” 并打开
 2. 找到“Windows沙盒”，勾选，点击确定 (可能需要重启电脑）
@@ -68,6 +58,36 @@ python main.py
 10. 双击FlowerBot.exe, 启动脚本
 
 *一定一定不能最小化，会导致脚本报错执行失败。可以拖到最边上或者用其他窗口挡住虚拟机窗口
+
+
+## 🛠️ 完整部署方法
+
+1.  **下载项目**
+    ```bash
+    git clone [https://github.com/你的用户名/MiniGame-Flower-Helper.git](https://github.com/你的用户名/MiniGame-Flower-Helper.git)
+    cd MiniGame-Flower-Helper
+    ```
+
+2.  **安装依赖**
+    建议使用 Python 3.8+ 环境：
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **配置参数**
+    * 将项目根目录下的 `config.sample.json` 复制一份，重命名为 `config.json`。
+    * 用记事本或 IDE 打开 `config.json`，填入你的邮箱授权码和想要调整的参数。
+
+4.  **准备素材**
+    * 在游戏的百花册中截图你想要抢的花朵图标（参考我的例子，尽量只截图标最中间的一小块，不要包含任何背景。或者等小鸭赛刷出你要的花后在小鸭赛界面截图）。
+    * 将图片放入 `targets` 文件夹中（例如 `春英郁金香.png`）。
+
+5.  **运行脚本**
+    * 在终端运行以下命令：
+
+```bash
+python main.py
+```
 
 
 ## ⚙️ 进阶配置说明
