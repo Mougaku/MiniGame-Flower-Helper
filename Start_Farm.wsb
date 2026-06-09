@@ -1,0 +1,19 @@
+<Configuration>
+  <vGpu>Enable</vGpu>
+
+  <Networking>Enable</Networking>
+
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>D:\GuaJi_Box</HostFolder>
+
+      <SandboxFolder>C:\Users\WDAGUtilityAccount\Desktop\GuaJi</SandboxFolder>
+
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+
+  <LogonCommand>
+    <Command>C:\Users\WDAGUtilityAccount\Desktop\GuaJi\Weixin\Weixin.exe</Command>
+  </LogonCommand>
+</Configuration>
